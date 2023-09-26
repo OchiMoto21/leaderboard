@@ -8,16 +8,6 @@
     --padding:20px;
 }
 
-@property --x {
-    syntax: "<percentage>";
-    initial-value: 0%;
-    inherits: true;
-}
-@property --y {
-    syntax: "<percentage>";
-    initial-value: 100%;
-    inherits: true;
-}
 body {
     /* align-items:center; */
     display:flex;
@@ -58,25 +48,6 @@ body {
   }
 }
 
-@keyframes percentage {
-    from {
-        --x : 0%;
-    }
-
-    to {
-        --x : 100%;
-    }
-}
-
-@keyframes reverse-percentage {
-    from {
-        --y : 100%;
-    }
-
-    to {
-        --y : 0%;
-    }
-}
 .title {
   animation: background-pan 3s linear infinite;
   font-size: var(--h1-font-size);
