@@ -6,6 +6,7 @@
     --thead-font-size: 30px;
     --tbody-font-size: 28px;
     --padding:20px;
+    --position: 100%;
 }
 
 body {
@@ -115,10 +116,28 @@ body {
     font-size: var(--tbody-font-size);
     text-align: center;
     padding: var(--padding);
+    /* pointer-events: */
+}
+/* .table tbody tr > td {
+    pointer-events: none;
+} */
+/* 
+.table tbody tr:nth-child(-n+3):hover {
+} */
+/* .table tbody tr:nth-child(-n+3) { */
+    /* background-position: 200% center; */
+    /* background-position: 50% center; */
+    /* transition: background-position 1s; */
+    /* background: linear-gradient(90deg, rgba(255, 219, 128, 0.34) 100%, rgba(36, 36, 36, 0.45) 15%); */
+/* } */
+.table tbody tr:first-child {
+    background: linear-gradient(90deg,rgba(36, 36, 36, 0.45) 0%, rgba(255, 219, 128, 0.34) 42.5%,rgba(255, 219, 128, 1) 50%, rgba(255, 219, 128, 0.34) 57.5%, rgba(36, 36, 36, 0.45) 100%);
+    background-position: 0% center;
+    background-size: 200%;
 }
 
-.table tbody tr:first-child {
-    background: linear-gradient(90deg, rgba(255, 219, 128, 0.34) 0%, rgba(36, 36, 36, 0.45) 15%);
+.table tbody tr:first-child:hover > td {
+    color:#121212;
 }
 
 .table tbody tr:nth-child(2) {
@@ -143,7 +162,35 @@ body {
 .table tbody tr:nth-child(3) td:first-child {
     color: #DFA35C;
 }
-
+.out {
+    animation-name: out;
+    animation-duration:2s;
+ 
+ }
+.over {
+    /* animation: ; */
+    animation-name: in;
+    animation-duration: 2s;
+    animation-iteration-count:infinite;
+    animation-delay: 0;
+    animation-timing-function: linear;
+ }
+ @keyframes in {
+     from {
+        background-position: 0%;
+     }
+     to {
+        background-position:  200%;
+     }
+ }
+ @keyframes out {
+     from {
+        background-position: var(--position);
+     }
+     to {
+        background-position: 100%;
+     }
+ }
 .blob-1 {
     position: absolute;
     height: 100vh;
