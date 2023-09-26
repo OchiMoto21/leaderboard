@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200&family=Righteous&display=swap');
+:root {
+    --h1-font-size: 98px;
+    --h2-font-size: 48px;
+    --thead-font-size: 30px;
+    --tbody-font-size: 28px;
+    --padding:20px;
+}
+
+@property --x {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: true;
+}
+@property --y {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: true;
+}
+body {
+    /* align-items:center; */
+    display:flex;
+    height:100vh;
+    width:100vw;
+    justify-content:center;
+    align-items: center;
+    background-color: #121212;
+    margin:0;
+    /* background-color: white; */
+    overflow-x: hidden;
+}
+
+.wrapper {
+    width: 70%;
+    height: 100vh;
+}
+
+.kaela-mining {
+    height: 30%;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: last baseline;
+    margin-bottom: 20px;
+    /* align-items: end; */
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes percentage {
+    from {
+        --x : 0%;
+    }
+
+    to {
+        --x : 100%;
+    }
+}
+
+@keyframes reverse-percentage {
+    from {
+        --y : 100%;
+    }
+
+    to {
+        --y : 0%;
+    }
+}
+.title {
+  animation: background-pan 3s linear infinite;
+  font-size: var(--h1-font-size);
+  font-family:'Righteous', cursive;
+  background: linear-gradient(90deg, #780000 10%,#F06330 30%, #FF9E59 50%, #780000 90%);
+  background-size:200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space:nowrap;
+  z-index: 0;
+  text-align: left;
+  margin:0;
+}
+
+.leaderboard {
+    font-family:'Righteous', cursive;
+    color:#FFD873;
+    font-size: var(--h2-font-size);
+    text-align: right;
+    margin:0;
+}
+ 
+.table-wrapper {
+    height: fit-content;
+    overflow:auto;
+    justify-content: center;
+
+}
+
+.table {
+    width: 100%;
+    border: none;
+    border-spacing: 0 0.2em;
+    overflow: auto;
+}
+
+.table th:nth-child(1){
+    width:10%;
+}
+.table th:nth-child(3){
+    width:17%;
+}
+.table th:nth-child(4){
+    width:30%;
+}
+
+.table thead th, .table tbody tr td:first-child{
+    color: #BFBFBF;
+    text-align: center;
+    font-family: Righteous;
+    font-size: var(--thead-font-size);
+    padding: var(--padding);
+    border-radius: 5px 0px 0px 5px;
+}
+
+.table tbody tr td:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
+
+/* First priority */
+.table tbody tr td {
+    color:#BFBFBF;
+    font-family: 'League Spartan', sans-serif;
+    font-size: var(--tbody-font-size);
+    text-align: center;
+    padding: var(--padding);
+}
+
+.table tbody tr:first-child {
+    background: linear-gradient(90deg, rgba(255, 219, 128, 0.34) 0%, rgba(36, 36, 36, 0.45) 15%);
+}
+
+.table tbody tr:nth-child(2) {
+    background: linear-gradient(90deg, rgba(218, 218, 218, 0.34) 0%, rgba(36, 36, 36, 0.45) 15%);
+}
+
+.table tbody tr:nth-child(3) {
+    background: linear-gradient(90deg, rgba(133, 102, 64, 0.34) 0%, rgba(36, 36, 36, 0.45) 15%);
+}
+
+.table tbody tr:nth-child(n+4) {
+    background: rgba(36, 36, 36, 0.45);
+}
+
+.table tbody tr:nth-child(1) td:first-child {
+    color: #FFDB80;
+}
+.table tbody tr:nth-child(2) td:first-child {
+    color: #DADADA;
+}
+
+.table tbody tr:nth-child(3) td:first-child {
+    color: #DFA35C;
+}
+
+.blob-1 {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(75vh circle at 66% 50%, rgba(200, 47, 26, 0.05) 0%, transparent 100%);
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.blob-2 {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(75vh circle at 33% 50%, rgba(200, 47, 26, 0.05) 0%, transparent 100%);
+    filter: blur(10px);
+    z-index: -1;
+
+}
+
+@media only screen and (max-width:1300px) {
+    :root {
+        --h1-font-size: 60px;
+        --h2-font-size: 30px;
+        --thead-font-size: 26px;
+        --tbody-font-size: 24px;
+        --padding:15px;
+    }
+    .wrapper {
+        width: 80%;
+    }
+
+}
+@media only screen and (max-width:700px) {
+    :root {
+        --h1-font-size: 50px;
+        --h2-font-size: 25px;
+        --thead-font-size: 20px;
+        --tbody-font-size: 18px;
+        --padding:10px;
+    }
+    .kaela-mining {
+        grid-auto-flow: row;
+        grid-template-columns: none;
+        grid-template-rows: 1fr min-content;
+        justify-items: center;
+        gap:0;
+    }
+    .wrapper {
+        width: 90%;
+    }
+}
